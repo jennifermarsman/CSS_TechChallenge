@@ -15,10 +15,16 @@
             background-color: lightgray;
             min-width: 350px;
             min-height: 350px;
-            max-width: 50%;
-            max-height: 50%;
+            /*max-width: 50%;
+            max-height: 50%;*/
+            width: 75vw;
+            height: 75vw;
 
             margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
         }
 
         .piece {
@@ -27,7 +33,84 @@
             height: 100%;
         }
 
-           
+
+        .cell {
+            background-color: brown;
+        }
+
+        .cell.white {
+            background-color: blue;
+        }
+
+        /* Media query for portrait/landscape */
+        @media screen and (orientation: portrait) {            
+            .cell {
+                background-color: black;
+            }
+            .cell.white {
+                background-color: white;
+            }
+        }
+
+        /* Put pieces on chessboard */
+        .king {
+            background-image: url("img/bK.png");
+        }
+        .king.white {
+            background-image: url("img/wK.png");
+        }
+        .queen {
+            background-image: url("img/bQ.png");
+        }
+        .queen.white {
+            background-image: url("img/wQ.png");
+        }
+        .bishop {
+            background-image: url("img/bB.png");
+        }
+        .bishop.white {
+            background-image: url("img/wB.png");
+        }
+        .knight {
+            background-image: url("img/bN.png");
+        }
+        .knight.white {
+            background-image: url("img/wN.png");
+        }
+        .rook {
+            background-image: url("img/bR.png");
+        }
+        .rook.white {
+            background-image: url("img/wR.png");
+        }
+        .pawn {
+            background-image: url("img/bP.png");
+        }
+        .pawn.white {
+            background-image: url("img/wP.png");
+        }
+
+
+        /* Set width of images */
+        .piece {
+            background-size: contain;
+        }
+
+        /* Transitions */
+        .piece.pawn {
+            transition: transform 2s ease 2s;
+        }
+
+        .piece.white:active {
+            transform: translateY(calc(75vw / 8));
+            transition: transform 2s ease;
+        }
+
+        .piece:active {
+            transform: translateY(calc(75vw / -8));
+            transition: transform 2s ease;
+        }
+
     </style>
 </head>
 
